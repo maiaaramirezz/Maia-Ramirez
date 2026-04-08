@@ -1,16 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de GitHub</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfil - Técnico en Programación</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"/>
 </head>
 <body>
-    <header>
-        <h1>maiiiiauwu</h1> </header>
-    <main>
-        <p>Bienvenido a mi proyecto de accesibilidad web.</p>
-    </main>
+
+  <div class="sdv">
+
+    <!-- ====== HEADER ====== -->
+    <div class="hdr">
+      <div class="hdr-left">
+        <div class="hdr-profile">
+          <div class="hdr-ptitle">&#9632; PROFILE</div>
+          <div class="hdr-date">DATE: <span id="fecha"></span></div>
+          <div class="hdr-sprite">&#129380;</div>
+        </div>
+      </div>
+      <div class="hdr-sign">
+        <div class="hdr-title">TECNICO<br>EN PROG.</div>
+      </div>
+    </div>
+
+    <!-- ====== MAIN GRID ====== -->
+    <div class="maingrid">
+
+      <!-- Info cards -->
+      <div class="inforow">
+        <div class="icard" data-tooltip="Tu generación">
+          <div class="lbl">&#9632; GENERACION</div>
+          <div class="val">Gen Z / Millennial</div>
+        </div>
+        <div class="icard" data-tooltip="Horas frente al teclado">
+          <div class="lbl">&#9632; HORAS DE CODIGO</div>
+          <div class="val">&gt; 1.000 hrs</div>
+        </div>
+        <div class="icard" data-tooltip="Tu combo tecnológico">
+          <div class="lbl">&#9632; STACK PRINCIPAL</div>
+          <div class="val">Python / JS / SQL</div>
+        </div>
+        <div class="icard" data-tooltip="El mejor compañero de debug">
+          <div class="lbl">&#9632; MASCOTA DEV</div>
+          <div class="val">Rubber Duck &#128038;</div>
+        </div>
+        <div class="icard" data-tooltip="Tu especialidad">
+          <div class="lbl">&#9632; TIPO DE PROYECTO</div>
+          <div class="val">Full-Stack / Backend</div>
+        </div>
+        <div class="icard" data-tooltip="Lo que más disfrutás">
+          <div class="lbl">&#9632; HABILIDAD FAV</div>
+          <div class="val">Debuggear bugs &#128030;</div>
+        </div>
+        <div class="icard" data-tooltip="El momento más emocionante">
+          <div class="lbl">&#9632; TEMPORADA FAV</div>
+          <div class="val">Deploy a prod &#127881;</div>
+        </div>
+      </div>
+
+      <!-- Avatar + Farms -->
+      <div class="avatar-side">
+        <div class="frame">
+          <div class="avbox">&#129489;&#8205;&#128187;</div>
+          <div class="nameplate">NOMBRE: __________</div>
+        </div>
+        <div class="farms">
+          <div class="ftitle">&#127806; PROYECTOS</div>
+          <div class="fitem" id="p1"><span class="pdot star"></span><span class="ptxt">Proyecto 1 — en progreso</span></div>
+          <div class="fitem" id="p2"><span class="pdot leaf"></span><span class="ptxt">Proyecto 2 — terminado</span></div>
+          <div class="fitem" id="p3"><span class="pdot bug"></span><span class="ptxt">Proyecto 3 — bugfixing</span></div>
+          <div class="fitem" id="p4"><span class="pdot newp"></span><span class="ptxt">Proyecto 4 — idea nueva</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ====== SKILLS ====== -->
+    <div class="skills">
+      <div class="stitle">&#9876; HABILIDADES Y HERRAMIENTAS</div>
+      <div class="sbadges" id="badgeContainer"></div>
+    </div>
+
+    <!-- ====== BOTTOM ====== -->
+    <div class="bottom">
+      <div class="bcard">
+        <div class="bctitle">&#9829; COMUNIDADES (NPCs)</div>
+        <ul class="blist">
+          <li><span class="bdot star"></span>Stack Overflow</li>
+          <li><span class="bdot leaf"></span>GitHub Community</li>
+          <li><span class="bdot diamond"></span>Dev.to / Hashnode</li>
+          <li><span class="bdot newp"></span>Open Source World</li>
+        </ul>
+      </div>
+      <div class="bcard">
+        <div class="bctitle">&#9675; STACK SONADO</div>
+        <ul class="blist">
+          <li><span class="bdot diamond"></span>React / Next.js</li>
+          <li><span class="bdot leaf"></span>FastAPI / Django</li>
+          <li><span class="bdot teal"></span>Docker + Cloud</li>
+          <li><span class="bdot star"></span>IA / ML tools</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ====== GROUND ====== -->
+    <div class="ground"></div>
+    <div class="footer">TEMPLATE DEV &#9632; INSPIRADO EN STARDEW VALLEY</div>
+
+  </div>
+
+  <!-- Tooltip -->
+  <div class="tooltip" id="tooltip"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
