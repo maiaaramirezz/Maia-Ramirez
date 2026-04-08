@@ -146,3 +146,75 @@ function activateRainbowMode() {
     }, i * 150);
   }
 }
+
+// ============================================================
+//  FORMULARIO DE CONTACTO → n8n WEBHOOK
+// ============================================================
+
+// 👇 REEMPLAZÁ con la URL de tu webhook de n8n
+const N8N_WEBHOOK_URL = 'https://TU-INSTANCIA.n8n.cloud/webhook/portfolio-contact';
+
+(function initContactForm() {
+  const form      = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const statusBox = document.getElementById('cfStatus');
+
+  if (!form) return;
+
+  function showStatus(type, msg) {
+    statusBox.className     = 'cf-status ' + type;
+    statusBox.textContent   = msg;
+    statusBox.style.display = 'block';
+  }
+
+  function resetStatus() {
+    statusBox.style.display = 'none';
+    statusBox.className     = 'cf-status';
+  }
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    resetStatus();
+
+    const name    = document.getElementById('cf-name').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+    const subject = document.getElementById('cf-subject').value.trim();
+    const message = document.getElementById('cf-message').value.trim();
+
+    if (!name || !email || !message) {
+      showStatus('error', '⚠ Completá nombre, email y mensaje.');
+      return;
+    }
+
+    submitBtn.disabled    = true;
+    submitBtn.textContent = '⏳ ENVIANDO...';
+    showStatus('loading', '▶ Enviando mensaje, aguardá...');
+
+    try {
+      const res  = await fetch(N8N_WEBHOOK_URL, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ name, email, subject, message }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        showStatus('success', `✔ ¡Gracias ${name}! Mensaje recibido. Te respondo pronto.`);
+        form.reset();
+        spawnStars(
+          submitBtn.getBoundingClientRect().left + submitBtn.offsetWidth / 2,
+          submitBtn.getBoundingClientRect().top,
+          14
+        );
+      } else {
+        showStatus('error', '✘ ' + (data.message || 'Algo salió mal, intentá de nuevo.'));
+      }
+    } catch (err) {
+      showStatus('error', '✘ Sin conexión o el servidor no responde.');
+    } finally {
+      submitBtn.disabled    = false;
+      submitBtn.textContent = '▶ ENVIAR MENSAJE';
+    }
+  });
+})();
