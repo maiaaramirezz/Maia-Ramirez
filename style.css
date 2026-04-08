@@ -386,10 +386,101 @@ body {
   100% { opacity: 0; transform: translate(var(--dx2), var(--dy2)) scale(0); }
 }
 
+/* ===== CONTACT FORM ===== */
+.contact-section {
+  background: #F4D9A0;
+  border: 4px solid #8B5E3C;
+  padding: 12px 14px;
+  margin: 0 8px 8px;
+}
+
+.contact-sub {
+  font-size: 7px;
+  color: #8B5E3C;
+  text-align: center;
+  margin-bottom: 14px;
+  line-height: 1.8;
+}
+
+.cf-row {
+  display: flex;
+  gap: 8px;
+}
+
+.cf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+  flex: 1;
+}
+
+.cf-field label {
+  font-size: 7px;
+  color: #5C3A1E;
+  letter-spacing: 1px;
+}
+
+.cf-field input,
+.cf-field textarea {
+  background: #FFF8E7;
+  border: 3px solid #8B5E3C;
+  padding: 7px 9px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: #3A1800;
+  outline: none;
+  resize: none;
+  width: 100%;
+}
+
+.cf-field input:focus,
+.cf-field textarea:focus {
+  border-color: #6BBF59;
+  background: #FFFDF0;
+}
+
+.cf-field textarea {
+  height: 80px;
+}
+
+.cf-btn {
+  width: 100%;
+  background: #8B5E3C;
+  color: #F4D9A0;
+  border: 3px solid #5C3A1E;
+  padding: 10px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: transform 0.05s, background 0.1s;
+  margin-top: 2px;
+}
+
+.cf-btn:hover  { background: #6BBF59; color: #1E3A0F; border-color: #3A7A28; }
+.cf-btn:active { transform: translate(2px, 2px); }
+.cf-btn:disabled { background: #B4B2A9; border-color: #888780; cursor: not-allowed; }
+
+.cf-status {
+  margin-top: 10px;
+  padding: 8px 10px;
+  font-size: 7px;
+  line-height: 1.8;
+  text-align: center;
+  display: none;
+  border: 3px solid;
+}
+
+.cf-status.success { background: #EAF3DE; border-color: #3B6D11; color: #27500A; }
+.cf-status.error   { background: #FCEBEB; border-color: #A32D2D; color: #791F1F; }
+.cf-status.loading { background: #FAEEDA; border-color: #854F0B; color: #633806; }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 500px) {
   .maingrid { flex-direction: column; }
   .avatar-side { min-width: unset; }
   .hdr-title { font-size: 13px; }
   .bottom { flex-direction: column; }
+  .cf-row { flex-direction: column; gap: 0; }
 }
